@@ -1,0 +1,147 @@
+/* Định dạng tổng thể */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Khung trình duyệt giả lập */
+.browser-frame {
+    width: 750px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Thanh tiêu đề giả lập */
+.browser-header {
+    background: #f1f1f1;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.browser-header .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.browser-header .buttons div {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.browser-header .address-bar {
+    flex-grow: 1;
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+/* Navbar */
+nav {
+    padding: 10px;
+    text-align: left;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Container với khung viền */
+.container {
+    background: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Định dạng liên kết */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Phân trang */
+.pagination {
+    margin-top: 15px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    margin: 2px;
+    border-radius: 3px;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
