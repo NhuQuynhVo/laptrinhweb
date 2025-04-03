@@ -34,6 +34,15 @@
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
+                                <div class="mb-3">
+                                    <label for="phone_number" class="form-label">Số điện thoại</label>
+                                    <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number', $user->phone_number ?? '') }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Địa chỉ</label>
+                                    <input type="text" class="form-control" name="address" value="{{ old('address', $user->address ?? '') }}">
+                                </div>
 
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Update</button>

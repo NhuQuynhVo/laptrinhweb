@@ -25,6 +25,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number', // Thêm số điện thoại
+        'address', // Thêm địa chỉ
     ];
 
     /**

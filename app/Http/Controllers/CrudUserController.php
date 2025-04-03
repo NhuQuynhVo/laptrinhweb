@@ -56,20 +56,24 @@ class CrudUserController extends Controller
     public function postUser(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'phone_number' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
         ]);
-
-        $data = $request->all();
-        $check = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+    
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
         ]);
-
-        return redirect("login");
+    
+        return redirect()->route('users.index')->with('success', 'Người dùng đã được tạo thành công!');
     }
+    
 
     /**
      * View user detail page
@@ -107,22 +111,23 @@ class CrudUserController extends Controller
      */
     public function postUpdateUser(Request $request)
     {
-        $input = $request->all();
-
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,id,'.$input['id'],
-            'password' => 'required|min:6',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone_number' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
         ]);
-
-       $user = User::find($input['id']);
-       $user->name = $input['name'];
-       $user->email = $input['email'];
-       $user->password = $input['password'];
-       $user->save();
-
-        return redirect("list")->withSuccess('You have signed-in');
+    
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+        ]);
+    
+        return redirect()->route('users.index')->with('success', 'Thông tin người dùng đã được cập nhật!');
     }
+    
 
     /**
      * List of users
